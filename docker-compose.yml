@@ -1,0 +1,30 @@
+
+services:
+  db:
+    image: postgres:17
+    container_name: postgres_db_auth
+    restart: always
+    environment:
+      POSTGRES_USER: postgres_db_auth
+      POSTGRES_PASSWORD: postgres_db_auth
+      POSTGRES_DB: postgres_db_auth
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: service_auth
+    ports:
+      - "5200:5200"
+    environment:
+      - DATABASE_URL=postgresql://postgres_db_auth:postgres_db_auth@db/postgres_db_auth
+    depends_on:
+      - db
+    volumes:
+      - ./app:/app
+volumes:
+  pgdata:
