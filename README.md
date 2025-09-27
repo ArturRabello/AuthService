@@ -20,7 +20,9 @@ O desenvolvimento dessa aplicação, me permitiu aprimorar as minhas habilidades
 
 A ideia desse projeto foi simular uma pequena arquitetura de microsserviços, onde cada API é independente e autônoma, ou seja, consegue viver e operar sem depender diretamente dos outros serviços.
 
+## Diagrama
 
+![alt text](./assets/diagrama.png)
 
 ## 🔗 Componentes do Projeto CineKeep
 
